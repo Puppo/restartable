@@ -7,17 +7,9 @@ const http2 = require('node:http2')
 
 const { afterEach, test } = require('node:test')
 const split = require('split2')
-const { request, setGlobalDispatcher, Agent } = require('undici')
+const { request } = require('./helpers/request')
 
 const { restartable } = require('..')
-
-setGlobalDispatcher(new Agent({
-  keepAliveTimeout: 1,
-  keepAliveMaxTimeout: 1,
-  tls: {
-    rejectUnauthorized: false
-  }
-}))
 
 const COMMON_PORT = 4242
 
